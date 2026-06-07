@@ -13,7 +13,6 @@ buildscript {
 
 plugins {
     id "com.matthewprenger.cursegradle" version "1.2.0"
-    id "com.jfrog.bintray" version "1.7"
 }
 
 apply plugin: 'maven'
@@ -144,21 +143,6 @@ publishing {
             artifact sourcesJar
             artifact apiJar
             artifact jar
-        }
-    }
-}
-
-bintray {
-    user = System.getenv('BINTRAY_USER')
-    key = System.getenv('BINTRAY_KEY')
-    publications = ['MyPublication']
-    publish = true
-    pkg {
-        repo = 'dev'
-        name = 'JustEnoughResources'
-        version {
-            name = project.version
-            released = new Date()
         }
     }
 }
